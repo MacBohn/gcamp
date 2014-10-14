@@ -2,6 +2,13 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 root "pages#index"
+
+  get "/about" => "pages#about", as: :about
+  get "/terms" => "pages#terms", as: :terms
+
+  # link_to("About us", foobar_path)
+
+end
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
@@ -53,4 +60,3 @@ root "pages#index"
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end

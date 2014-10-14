@@ -1,5 +1,16 @@
 
 <!DOCTYPE html>
+<html>
+<head>
+  <title>Gcamp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+
+
+</html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -10,7 +21,6 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Jumbotron Template for Bootstrap</title>
-
     <!-- Bootstrap core CSS -->
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
@@ -25,9 +35,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-
-  <body>
-
+<body>
     <div class=role="navigation">
       <div class="container">
         <div class="navbar-inverse navbar navbar-header">
@@ -37,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">gcamp</a>
+          <a class="navbar-brand" href="/">gcamp</a>
         </div>
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">
@@ -47,72 +55,15 @@
         </div><!--/.navbar-collapse -->
       </div>
     </div>
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>gcamp</h1>
-        <p>Your life, organized.</p>
-      </div>
-    </div>
-
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-
-          <div class="row">
-            <img src="https://farm9.staticflickr.com/8538/8864977481_713b7cbda5_n.jpg" class="col-md-12">
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Tasks</h3>
-            </div>
-            <div class="panel-body">
-              Grouped by projects and lists. Just they way you like them.
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-md-4">
-          <div class="row">
-            <img src="https://farm9.staticflickr.com/8512/8544713443_f54d8c476b_n.jpg" class="col-md-12">
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Documents</h3>
-            </div>
-            <div class="panel-body">
-              <li>Upload</li>
-              <li>Comment</li>
-              <li>Revise</li>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-md-4">
-          <div class="row">
-            <img src="https://farm6.staticflickr.com/5517/9318999681_0669e93ce4_n.jpg" class="col-md-12">
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Comments</h3>
-            </div>
-            <div class="panel-body">
-              <li>Comment on tasks and documents</li>
-              <li>Get email notifications</li>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <hr>
-
       <footer>
+      <hr>
+        <%= yield %>
+
+
+       <h1><%= link_to('About', :about) %></h1>
+       <h1><%= link_to('Terms', :terms) %></h1>
+
+
         <p>&copy; Mega Mac Company 2014</p>
       </footer>
     </div>
@@ -126,19 +77,3 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Gcamp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
-</html>
