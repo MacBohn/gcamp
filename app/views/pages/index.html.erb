@@ -2,8 +2,7 @@
 <div class="jumbotron">
   <div class="container">
     <h1>gcamp</h1>
-    <% as_of = Time.now %>
-    <p> Your life, organized. <% as_of = Time.now %> </p>
+     Your life, organized. %>
   </div>
 </div>
 
@@ -61,3 +60,8 @@
           </div>
         </div>
       </div>
+
+      <% @quotes.each do |quote| %>
+      <ul>"<%= quote[0] %>"</ul>
+      <ul>  - <%= quote[1] %> </ul>
+      <% end %>
