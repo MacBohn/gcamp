@@ -34,8 +34,11 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
   </head>
 <body>
+  <div class= "jumbotron">
+  <div class="container">
     <div class=role="navigation">
       <div class="container">
         <div class="navbar-inverse navbar navbar-header">
@@ -50,16 +53,21 @@
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">
             <div class="form-group">
+              <%= yield %>
             </div>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
+  </div>
+</div>
       <footer>
       <hr>
-        <%= yield %>
 
-       <p><%= link_to('About', :about) %>|<%= link_to('Terms', :terms) %></p>
+
+       <p><%= link_to('About', :about) %>|
+         <%= link_to('Terms', :terms) %>|
+         <%= link_to('FAQ', :faq) %></p>
 
 
         <p>&copy; Mega Mac Company 2014</p>

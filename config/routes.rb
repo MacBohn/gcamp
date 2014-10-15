@@ -5,6 +5,7 @@ root "pages#index"
 
   get "/about" => "pages#about", as: :about
   get "/terms" => "pages#terms", as: :terms
+  get "/faq" => "pages#faq", as: :faq
 
   # link_to("About us", foobar_path)
 
