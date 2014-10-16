@@ -16,14 +16,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
 .navbar     {
-  background-color: orange;
+  background-color: black;
+}
+
+.jumbotron     {
+  background-color: transparent;
+
+
 
 }
 
 h1 {
   font-size: 50px;
+}
+h2 {
+  color: #999;
 }
  .author_grey{
   color: #999;
