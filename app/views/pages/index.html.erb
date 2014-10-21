@@ -76,9 +76,9 @@
           </div>
         </div>
       </div>
-
+<div class="panel">
       <% @quotes.each do |quote| %>
       <p>"<%= quote.text %>"</p>
       <p class= "author_grey"> - <%= quote.author %> </p>
-      <hr>
       <% end %>
+    </div>
