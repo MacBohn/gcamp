@@ -1,33 +1,32 @@
-
 <h1>Tasks</h1>
+  <div class="container">
+    <div class= "text-right">
+<td align="right"><button class="btn btn-small btn-info" type="button"><%= link_to 'New Task', new_task_path %></button></td>
+</div>
+</div>
 
-    <tr>
-      <th>Description</th>
+
+
       <th colspan="3"></th>
-    </tr>
 
 
   <tbody>
+
+    <th> Description </th>        <th> Complete </th>
     <table>
 
+
     <% @tasks.each do |task| %>
+<tr>
+      <td width="100%"> <%= task.description %><%= task.complete %> </td>
 
-      <tr>
+       <td align="left"><button class="btn btn-small btn-info" type="button"><%= link_to 'Show', task %></button></td>
 
-       <td width="100%"><%= task.description %></td>
+       <td align="center"><button class="btn btn-small btn-success" type="button"><%= link_to 'Edit', edit_task_path(task) %></button></td>
 
-       <td align="left"><button class="btn btn-small btn-danger" type="button"><%= link_to 'Show', task %></button></td>
-
-       <td align="center"><button class="btn btn-small btn-warning" type="button"><%= link_to 'Edit', edit_task_path(task) %></button></td>
-
-       <td align="right"><button class="btn btn-small btn-success" type="button"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
-
+       <td align="right"><button class="btn btn-small btn-danger" type="button"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+</tr>
     <% end %>
-
-  </tr>
   </tbody>
 </table>
 <br>
-<tr>
-<td align="left"><button class="btn btn-small btn-info" type="button"><%= link_to 'New Task', new_task_path %></button></td>
-</tr>
