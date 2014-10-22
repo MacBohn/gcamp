@@ -17,6 +17,9 @@ def index
 
 
 end
+def tasks
+  
+end
 
 def faq
   faq1 = Faq.new
