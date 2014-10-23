@@ -4,8 +4,15 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
-  end
+
+    if params[:sort_by] == "all"
+      @tasks = Task.order(:all)
+    elsif params[:sort_by] == "complete"
+        @tasks = Task.order(:complete)
+      else
+        @tasks = Task.all
+      end
+
 
   # GET /tasks/1
   # GET /tasks/1.json
@@ -60,8 +67,6 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params[:id])
@@ -71,4 +76,5 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:description, :complete, :due_date )
     end
+  end
 end
