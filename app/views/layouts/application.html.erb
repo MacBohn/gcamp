@@ -30,23 +30,31 @@
         <%= yield %>
 
   <footer class="panel container">
-
+<div class= "col-md-2">
        <p><%= link_to 'About', about_path %>|
          <%= link_to 'Terms', terms_path %>|
          <%= link_to 'FAQ', faq_path %>|
-         <%= link_to 'Task', index_path %>|</p>
+         <%= link_to 'Task', index_path %>|
+
+         &copy; Mega Mac Company</p>
+       </div>
+
           <div class="col-md-2 col-md-offset-8">
             <%= link_to "http://www.linkedin.com/profile/view?id=375932840&trk=nav_responsive_tab_profile" do%>
             <%= image_tag("linked-in.png", width: "20em") %>
-            <% end %>
+             |<% end %>
             <%= link_to "https://twitter.com/BohnMccartney" do%>
-            <%= image_tag("Twitter_logo_blue-ea99fe4ed7b18baddfc0416d96683ce2.png", width: "20em") %>
-            <% end %>
-
-
+            <%= image_tag("Twitter_logo.png", width: "20em") %>
+             |<% end %>
+            <%= link_to "https://github.com/MacBohn" do%>
+            <%= image_tag("git_hub.png", width: "20em") %>
+             |<% end %>
+            <%= link_to "http://www.galvanize.it/school#main" do%>
+            <%= image_tag("gschool.jpeg", width: "30em") %>
+             |<% end %>
           </div>
 
-        <p>&copy; Mega Mac Company 2014</p>
+
       </footer>
     </!--/container -->
 </body>
