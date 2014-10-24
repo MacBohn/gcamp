@@ -2,22 +2,14 @@
 <html>
 <head>
     <title>gCamp</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-    <!-- Bootstrap core CSS -->
-    <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -43,7 +35,16 @@
          <%= link_to 'Terms', terms_path %>|
          <%= link_to 'FAQ', faq_path %>|
          <%= link_to 'Task', index_path %>|</p>
+          <div class="col-md-2 col-md-offset-8">
+            <%= link_to "http://www.linkedin.com/profile/view?id=375932840&trk=nav_responsive_tab_profile" do%>
+            <%= image_tag("linked-in.png", width: "20em") %>
+            <% end %>
+            <%= link_to "https://twitter.com/BohnMccartney" do%>
+            <%= image_tag("Twitter_logo_blue-ea99fe4ed7b18baddfc0416d96683ce2.png", width: "20em") %>
+            <% end %>
 
+
+          </div>
 
         <p>&copy; Mega Mac Company 2014</p>
       </footer>
