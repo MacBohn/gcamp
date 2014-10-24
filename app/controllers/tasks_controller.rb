@@ -8,10 +8,10 @@ class TasksController < ApplicationController
     if params[:sort_by] == "all"
       @tasks = Task.order(:all)
     elsif params[:sort_by] == "complete"
-        @tasks = Task.order(:complete)
-      else
-        @tasks = Task.all
-      end
+      @tasks = Task.where(:complete => true)
+    else
+      @tasks = Task.all
+    end
 
 
   # GET /tasks/1

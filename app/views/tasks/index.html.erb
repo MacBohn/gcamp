@@ -2,7 +2,7 @@
 <div class= "page-header">
   <div class= "pull-right">
   <%= link_to 'All', tasks_path %> |
-  <%= link_to 'Incomplete', tasks_path(: "complete")%>
+  <%= link_to 'Incomplete', tasks_path(sort_by: "complete")%>
   <%= link_to 'Create Task', new_task_path, class: "btn btn-primary"%>
 </div>
   <h2>Tasks</h2>
@@ -21,7 +21,9 @@
   <th>Description</th> <th>Due Date</th> <th>Complete</th>
     <% @tasks.each do |task| %>
 <tr>
- <td><%= task.description %></td><td><%= task.due_date %></td><td><%= task.complete %> </td>
+ <td><%= task.description %></td>
+ <td><%= task.due_date %></td>
+ <td><%= task.complete %> </td>
 
     <td width="30px"><%= link_to 'Show',task, class: "pull-right btn btn-success" %></td>
 
