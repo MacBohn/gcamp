@@ -7,8 +7,8 @@ class TasksController < ApplicationController
 
     if params[:sort_by] == "all"
       @tasks = Task.order(:all)
-    elsif params[:sort_by] == "complete"
-      @tasks = Task.where(:complete => true)
+    elsif params[:sort_by] == "incomplete"
+      @tasks = Task.where(:complete => false)
     else
       @tasks = Task.all
     end
