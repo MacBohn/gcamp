@@ -1,0 +1,32 @@
+<div class ="container">
+<div class= "page-header">
+  <div class= "pull-right">
+  <%= link_to 'Create Users', new_user_path, class: "btn btn-primary" %>
+  </div>
+<h1> Users </h1>
+</div>
+
+<% if notice.is_a? String %>
+<div class="text-center alert alert-info"><%= notice %> </div>
+<% end %>
+    <table class ="table">
+<thead>
+
+
+
+</thead>
+  <tbody>
+
+
+  <th>First Name</th><th>Last Name</th><th>Email</th><th>Update?</th>
+  <% @users.each do |user| %>
+  <tr>
+  <td><%= user.first_name %></td>
+  <td><%= user.last_name %></td>
+  <td><%= user.email %></td>
+  <td>  <%= link_to 'Update', edit_user_path(user) %></td>
+  <tr>
+<% end %>
+</table>
+</div>
+</div>

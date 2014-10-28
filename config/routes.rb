@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :tasks
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   get "/terms" => "pages#terms", as: :terms
   get "/faq" => "pages#faq", as: :faq
   get "/tasks" => "tasks#index", as: :index
+  get "/users" => "users#index", as: :users_gcamp
   # link_to("About us", foobar_path)
 
 end
