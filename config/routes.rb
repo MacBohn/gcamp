@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "/terms" => "pages#terms", as: :terms
   get "/faq" => "pages#faq", as: :faq
   get "/tasks" => "tasks#index", as: :index
-  get "/users" => "users#index", as: :users_gcamp
+  get "/users" => "users#index", as: :user_gcamp
   # link_to("About us", foobar_path)
 
 end

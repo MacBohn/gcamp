@@ -18,12 +18,13 @@
   <tbody>
 
 
-  <th>Name</th><th>Email</th><th>Edit?</th>
+  <th>Name</th><th>Email</th><th>Edit ?</th><th>Delete ?</th>
   <% @users.each do |user| %>
   <tr>
   <td><%= user.first_name %> <%= user.last_name %></td>
   <td><%= mail_to user.email %></td>
-  <td>  <%= link_to 'Edit', edit_user_path(user) %></td>
+  <td><%= link_to 'Edit', edit_user_path(user) %></td>
+  <td><%= link_to 'Delete', user_path(user), method: :delete, data: {confirm: true} %></td>
   <tr>
 <% end %>
 </table>
