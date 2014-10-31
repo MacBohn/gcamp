@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-
     @users = User.all
     end
 
@@ -11,7 +10,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to users_path
+    redirect_to users_path, notice: 'User was successfully destroyed'
   end
   def edit
     @user = User.find(params[:id])
@@ -33,6 +32,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name , :email)
+    params.require(:user).permit(:first_name ,:last_name, :email)
   end
 end
