@@ -1,10 +1,12 @@
 
   <h1>Specific User</h1>
-<p><strong>First Name:</strong>
-<%= @user.first_name %></p>
-<p><strong>Last Name:</strong>
-<%= @user.last_name %></p>
-<div class ="horizontal">
-<p><strong>Email:</strong>
-<%= mail_to @user.email %></p>
-</div>
+  <dl class="dl-horizontal">
+    <dt><strong>First Name:</strong></dt>
+    <dd><%= @user.first_name %></dd>
+
+    <dt><strong>Last Name:</strong></dt>
+    <dd><%= @user.last_name %></dd>
+    
+    <dt><strong>Email:</strong></dt>
+    <dd><%= mail_to @user.email %></dd>
+  </dl>

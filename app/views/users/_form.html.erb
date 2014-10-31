@@ -1,24 +1,38 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, :html => {:class => 'form-horizontal'}) do |f| %>
+
+<div class="form-group row">
+  <div class="field">
+    <%= f.label :first_name, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :first_name, class: "form-control"%>
+    </div>
+  </div>
+</div>
 
 <div class="form-group row">
    <div class="field">
-     <%= f.label :first_name %>
-     <%= f.text_field :first_name %>
-   </div>
- </div>
+     <%= f.label :last_name, class: "col-sm-2 control-label" %>
+     <div class="col-sm-6">
+     <%= f.text_field :last_name, class: "form-control" %>
+    </div>
+  </div>
+</div>
+
 <div class="form-group row">
-   <div class="field">
-     <%= f.label :last_name %>
-     <%= f.text_field :last_name %>
-   </div>
- </div>
-       <div class="form-group row">
-        <div class="field">
-          <%= f.label :email %>
-          <%= f.text_field :email %>
-        </div>
+  <div class="field">
+    <%= f.label :email, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+    <%= f.text_field :email, class: "form-control" %>
+    </div>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-sm-offset-2 col-sm-6">
+      <div class="actions">
+        <%= f.submit class: "btn btn-primary"%>
       </div>
-            <div class="actions">
-              <%= f.submit class: "btn btn-primary"%>
-            </div>
- <% end %>
+  </div>
+</div>
+
+
+<% end %>
