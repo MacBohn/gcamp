@@ -10,9 +10,19 @@ Rails.application.routes.draw do
   get "/about" => "pages#about", as: :about
   get "/terms" => "pages#terms", as: :terms
   get "/faq" => "pages#faq", as: :faq
+
   get "/tasks" => "tasks#index", as: :index
+
   get "/users" => "users#index", as: :user_gcamp
+  
+
   get "/projecs" => "projects#index", as: :projects_gcamp
+
+  get '/sign-up' => 'registrations#new', as: :signup
+  post '/sign-up' => 'registrations#create'
+  get '/sign-in' => 'authentication#new', as: :signin
+  post '/sign-in' => 'authentication#create'
+  get '/sign-out' => 'authentication#destroy', as: :signout
   # link_to("About us", foobar_path)
 
 end

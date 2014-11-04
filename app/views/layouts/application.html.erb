@@ -21,15 +21,27 @@
   </head>
 <body>
 
+
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-      <a class="navbar-brand" href="/">gCamp</a>
-    </div>
+  <a class="navbar-brand" href="/">gCamp</a>
+
+    <div class="navbar-brand pull-right">
+
+  <% if current_user %>
+    <%= link_to "#{current_user.first_name} #{current_user.last_name}", user_path(session[:user_id]) %>|
+    <%= link_to "Sign Out", signout_path %>
+  <% else %>
+    <%= link_to "Sign Up", signup_path %>
+    |
+    <%= link_to "Sign In", signin_path %>
+  <% end %>
+</div>
+        </div>
   </nav>
   <br>
-  <br>
-  <div class ="container">
         <%= yield %>
+  <br>
   <footer class="panel container">
 <div class="col-md-4">
        <p><%= link_to 'About', about_path %>|
@@ -54,10 +66,8 @@
             <%= image_tag("gschool.jpeg", width: "30em") %>
              <% end %>
           </div>
-        </div>
-
-
       </footer>
+    </body>
     </!--/container -->
-</body>
+
 </html>

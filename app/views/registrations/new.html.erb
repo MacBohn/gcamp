@@ -1,0 +1,69 @@
+<div class="page-header">
+</div>
+<div class="well col-md-offset-4 col-md-4">
+
+<h2>Sign up for gCamp</h2>
+
+<%= form_for @user, url: signup_path do |f| %>
+
+  <% if @user.errors.present? %>
+      <% @user.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+      <% end %>
+
+  <% end %>
+
+  <div class="form-group row">
+     <div class="field">
+      <%= f.label :first_name, class: "col-sm-4 control-label" %>
+      <div class="col-sm-6">
+          <%= f.text_field :first_name, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+<div class="form-group row">
+   <div class="field">
+    <%= f.label :last_name, class: "col-sm-4 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_field :last_name, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+
+  <div class="form-group row">
+     <div class="field">
+    <%= f.label :email,  class: "col-sm-4 control-label" %>
+<div class="col-sm-6">
+    <%= f.email_field :email, class: "form-control" %>
+    </div>
+  </div>
+</div>
+  <div class="form-group row">
+     <div class="field">
+    <%= f.label :password,  class: "col-sm-4 control-label"%>
+  <div class="col-sm-6">
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+</div>
+</div>
+
+  <div class="form-group row">
+     <div class="field">
+    <%= f.label :password_confirmation,  class: "col-sm-4 control-label" %>
+  <div class="col-sm-6">
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+</div>
+</div>
+
+  <div class="form-group row">
+    <div class="col-sm-offset-4 col-sm-4">
+        <div class="actions">
+    <%= f.submit "Sign up", class: "btn btn-primary"%>
+  </div>
+</div>
+<% end %>
+</div>
