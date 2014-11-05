@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <di
     <title>gCamp</title>
     <%= stylesheet_link_tag    'application' %>
     <%= javascript_include_tag 'application' %>
@@ -20,6 +19,7 @@
 
   </head>
 <body>
+
 
 
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -42,6 +42,7 @@
   <br>
         <%= yield %>
   <br>
+
   <footer class="panel container">
 <div class="col-md-4">
        <p><%= link_to 'About', about_path %>|
@@ -65,8 +66,9 @@
             <%= link_to "http://www.galvanize.it/school#main" do%>
             <%= image_tag("gschool.jpeg", width: "30em") %>
              <% end %>
-          </div>
       </footer>
+    </div>
+
     </body>
     </!--/container -->
 
