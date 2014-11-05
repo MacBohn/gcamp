@@ -6,7 +6,7 @@
 <%= form_tag signin_path do |f| %>
 
   <% if @sign_in_error %>
-    <div class="alert alert-danger">
+    <div class="text-danger">
       <%= @sign_in_error %>
     </div>
   <% end %>
@@ -24,10 +24,9 @@
     <%= password_field_tag :password, nil, class: "form-control" %>
   </div>
 <br>
-    <div class="col-md-offset-4 col-sm-4">
+
         <div class="actions">
           <%= submit_tag "Sign in", class: "btn btn-primary"%>
       </div>
     </div>
-  </div>
 <% end %>
