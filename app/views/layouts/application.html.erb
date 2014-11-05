@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
+<div class="container">
 <head>
+
     <title>gCamp</title>
     <%= stylesheet_link_tag    'application' %>
     <%= javascript_include_tag 'application' %>
@@ -42,7 +44,7 @@
   <br>
         <%= yield %>
   <br>
-
+</div>
   <footer class="panel container">
 <div class="col-md-4">
        <p><%= link_to 'About', about_path %>|
