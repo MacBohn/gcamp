@@ -25,7 +25,6 @@ feature "Projects" do
     visit project_path(project)
     expect(page).to have_content(project.name)
     click_on "Edit"
-    save_and_open_page
     fill_in "Name",with: "Nice"
     click_on "Edit Project"
     expect(page).to have_content("Nice")
