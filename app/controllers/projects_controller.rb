@@ -10,9 +10,12 @@ class ProjectsController <ApplicationController
   def create
     project_params = params.require(:project).permit(:name)
     @project = Project.new(project_params)
-    @project.save
+  if  @project.save
     redirect_to projects_path
+  else
+    render :new
   end
+ end
   def show
     @project = Project.find(params[:id])
   end
