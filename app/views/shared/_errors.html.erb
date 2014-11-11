@@ -1,0 +1,12 @@
+
+<% if instance.errors.any? %>
+  <div id="error_explanation">
+    <ul class = "alert alert-danger">
+    <h2><%= pluralize(instance.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+    <% instance.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -1,15 +1,17 @@
 <%= form_for(@task) do |f| %>
-  <% if @task.errors.any? %>
+
+<%= render "shared/errors", instance: @task %>
+  <!-- <% if @task.errors.any? %>
     <div id="error_explanation">
+      <ul class = "alert alert-danger">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-      <ul>
       <% @task.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %> -->
   <div class="form-group">
     <div class="field">
       <%= f.label :description %><br>
