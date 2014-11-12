@@ -26,7 +26,8 @@ feature "Projects" do
     expect(page).to have_content(project.name)
     click_on "Edit"
     fill_in "Name",with: "Nice"
-    click_on "Edit Project"
+    save_and_open_page
+    click_on "Update Project"
     expect(page).to have_content("Nice")
   end
 end
