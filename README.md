@@ -1,4 +1,6 @@
 == README
+
+[![Build Status](https://travis-ci.org/MacBohn/gcamp.svg?branch=master)](https://travis-ci.org/MacBohn/gcamp)
 ********************
 heroku link: afternoon-everglades-6681.herokuapp.com
 ********************
