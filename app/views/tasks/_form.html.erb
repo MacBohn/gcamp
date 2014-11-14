@@ -8,9 +8,11 @@
       <%= f.text_field :description %>
 
       <div class ="form-group">
-        <%=f.label :due_date, "Due Date "%><br>
-        <%= f.date_field :due_date %>
-      </div>
+            <%=f.label :due_date, "Due Date "%><br>
+            <%= f.date_field :due_date %>
+            <i class="glyphicon glyphicon-calendar"></i>
+      </div>  
+
     <% if @task.id? %>
       <div class= "complete">
         <%= f.label :complete%>
