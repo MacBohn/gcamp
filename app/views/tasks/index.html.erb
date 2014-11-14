@@ -18,11 +18,11 @@
   <tbody>
 
 
-  <th>Description</th> <th>Due Date</th> <th>Complete</th>
+  <th>description</th> <th>due date</th> <th>complete</th>
     <% @tasks.each do |task| %>
 <tr>
  <td><%= task.description %></td>
- <td><%= task.due_date %></td>
+ <td><%= task.due_date.try(:strftime, "%m/%d/%Y")%></td>
  <td><%= task.complete %> </td>
 
     <td width="30px"><%= link_to 'Show',task, class: "pull-right btn btn-success" %></td>

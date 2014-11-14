@@ -14,7 +14,7 @@
 
   <p>
     <strong>Due Date:</strong>
-    <%= @task.due_date %>
+    <%= @task.due_date.try(:strftime, "%m/%d/%Y") %>
   </p>
 
 
