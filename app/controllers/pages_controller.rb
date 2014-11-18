@@ -18,7 +18,7 @@ def index
 
 end
 def tasks
-  
+
 end
 
 def faq

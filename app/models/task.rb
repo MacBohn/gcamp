@@ -8,6 +8,6 @@ class Task < ActiveRecord::Base
       errors.add(:due_date, 'cannot be in past')
     end
   end
-
+    belongs_to :project
 
 end

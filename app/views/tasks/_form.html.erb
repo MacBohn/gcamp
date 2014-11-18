@@ -1,4 +1,4 @@
-<%= form_for(@task) do |f| %>
+<%= form_for[@project, @task] do |f| %>
 
 <%= render "shared/errors", instance: @task %>
 
@@ -10,8 +10,8 @@
       <div class ="form-group">
             <%=f.label :due_date, "Due Date "%><br>
             <%= f.date_field :due_date %>
-            <i class="glyphicon glyphicon-calendar"></i>
-      </div>  
+        <i class="glyphicon glyphicon-calendar", class: "form-control" ></i>
+      </div>
 
     <% if @task.id? %>
       <div class= "complete">

@@ -1,13 +1,17 @@
 class TasksController < ApplicationController
+  before_action do
+    @project = Project.find(params[:project_id])
+  end
+
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
   # GET /tasks.json
   def index
     if params[:complete]
-      @tasks = Task.order(params[:sort_by])
+      @tasks = @project.tasks.order(params[:sort_by])
     else
-      @tasks = Task.order(params[:sort_by]).where(complete: false)
+      @tasks = @project.tasks.order(params[:sort_by]).where(complete: false)
     end
   end
 
@@ -18,7 +22,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
+    @task = @project.tasks.new
   end
 
   # GET /tasks/1/edit
@@ -28,7 +32,7 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
+    @task = @projects.tasks.new(task_params)
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }

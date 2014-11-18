@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :tasks
   resources :users
-  resources :projects
+
+  resources :projects do
+    resources :tasks
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
   get "/tasks" => "tasks#index", as: :index
 
   get "/users" => "users#index", as: :user_gcamp
-  
+
 
   get "/projecs" => "projects#index", as: :projects_gcamp
 

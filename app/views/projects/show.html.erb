@@ -1,6 +1,11 @@
-<div class="page-header">
-<h1><%= @project.name %></h1>
-</div>
-
-<%= link_to "Edit", edit_project_path(@project) %>
-<%= link_to "Delete", project_path(@project), method: :delete %>
+  <div class="page-header">
+    <div class= "pull-right">
+        <%= link_to "Edit", edit_project_path(@project), class: "btn btn-primary" %>
+        <%= link_to "Delete", project_path(@project), method: :delete, class: "btn btn-danger" %>
+    </div>
+      <h2><%= @project.name %></h2>
+  </div>
+  <ol class="breadcrumb">
+  <li><a href="#">Projects</a><span>></span></li>
+  <li class="active">Show</li>
+</ol>
