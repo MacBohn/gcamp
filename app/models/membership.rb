@@ -1,4 +1,4 @@
-class Membership < ActiveRecord: :Base
+class Membership < ActiveRecord::Base
 
 validates :user
 
@@ -7,3 +7,5 @@ validates :user
 belongs_to :project
 belongs_to :user
 enum :role => [ :member, :owner]
+
+end
