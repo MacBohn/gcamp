@@ -4,14 +4,17 @@
   </div>
 <h1>Projects</h1>
 </div>
-<tr>Name</tr>
 <table class ="table">
-
-
-  <tbody>
+<tbody>
+<th>Name</th><th>Tasks</th>
 <% @projects.each do |project| %>
-<p><%=link_to project.name, project_path(project) %></p>
+<tr>
+<td><%=link_to project.name, project_path(project) %></td>
+
+<td><%= link_to (project.tasks.count), project_tasks_path(project) %></td>
+</tr>
+<% end %>
+
 </tbody>
 
 </table>
-<% end %>

@@ -3,8 +3,6 @@ class TasksController < ApplicationController
     @project = Project.find(params[:project_id])
   end
 
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
-
   # GET /tasks
   # GET /tasks.json
   def index
@@ -18,6 +16,7 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    @task =@project.tasks.find(params[:id])
   end
 
   # GET /tasks/new
@@ -32,10 +31,10 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = @projects.tasks.new(task_params)
+    @task = @project.tasks.new(task_params)
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to project_tasks_path(@project, @task), notice: 'Task was successfully created.' }
       else
         format.html { render :new }
       end
@@ -66,9 +65,7 @@ class TasksController < ApplicationController
     end
   end
     # Use callbacks to share common setup or constraints between actions.
-    def set_task
-      @task = Task.find(params[:id])
-    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
