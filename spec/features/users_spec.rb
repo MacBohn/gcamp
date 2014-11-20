@@ -26,6 +26,5 @@ feature "Users" do
      click_on "Delete User"
      expect(page).to have_content("User was successfully destroyed")
      expect(page).to have_no_content("MATT")
-     save_and_open_page
    end
  end

@@ -11,7 +11,7 @@ feature "Sign Up" do
     fill_in "Password", with: "pass"
     fill_in "Password confirmation", with: "pass"
     click_on "Sign up"
-    expect(page).to have_content("Your life, organized.")
+    expect(page).to have_content("MAC DRE")
 
 end
 end

@@ -4,15 +4,24 @@
 
  <div class="form-group">
     <div class="field">
-      <%= f.label :description %><br>
-      <%= f.text_field :description %>
-
+      <%= f.label :description , class: "control-label"%><br>
+      <div class="col-sm-6">
+      <%= f.text_field :description , class: "form-control"%>
+    </div>
+  </div>
+</div>
+<br>
       <div class ="form-group">
-            <%=f.label :due_date, "Due Date "%><br>
-            <%= f.date_field :due_date %>
-        <i class="glyphicon glyphicon-calendar", class: "form-control" ></i>
+        <div class="field">
+            <%=f.label :due_date , class: "control-label"%><br>
+          <div class="col-sm-6">
+            <%= f.date_field :due_date, class: "form-control" %>
+          </div>
+        </div>
       </div>
 
+  <h3><i class="glyphicon glyphicon-calendar", class: "form-control" ></i></h3>
+  
     <% if @task.id? %>
       <div class= "complete">
         <%= f.label :complete%>
@@ -20,10 +29,11 @@
       </div>
     <% end %>
 
-
-  <div class="actions">
-    <%= f.submit class: "btn btn-primary" %>
+  <div class="form-group row">
+    <div class="col-sm-offset-2 col-sm-6">
+      <div class="actions">
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
-</div>
 <% end %>

@@ -25,7 +25,6 @@ scenario "User create tasks" do
   click_on "All"
   click_on "Destroy"
   expect(page).to have_no_content("YOYOYO")
-  save_and_open_page
 
   end
 end

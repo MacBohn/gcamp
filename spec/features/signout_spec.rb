@@ -12,10 +12,10 @@ feature "Sign Out" do
     fill_in "Password confirmation", with: "pass"
     click_on "Sign up"
     expect(page).to have_content("Your life, organized.")
-    save_and_open_page
+
 
     click_on "Sign Out"
-    expect(page).to have_content("© Mega Mac Company")
+    expect(page).to have_content("Sign In")
     save_and_open_page
   end
 end

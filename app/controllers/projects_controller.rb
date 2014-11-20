@@ -18,6 +18,7 @@ class ProjectsController <ApplicationController
  end
   def show
     @project = Project.find(params[:id])
+    @memberships = Membership.all
   end
   def edit
     @project = Project.find(params[:id])
@@ -25,9 +26,13 @@ class ProjectsController <ApplicationController
   def update
   project_params = params.require(:project).permit(:name)
     @project = Project.find(params[:id])
-    @project.update(project_params)
+    if @project.update(project_params)
     redirect_to projects_path(@projects)
+  else
+    render:new
   end
+  end
+
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
