@@ -10,13 +10,21 @@ class MembershipsController < ApplicationController
 
   def create
     @membership = @project.memberships.new(params.require(:membership).permit(:project_id, :user_id, :role))
-    @membership.save
+    if @membership.save
     redirect_to project_memberships_path(@project, @membership)
+    else
+      render :index
+    end
   end
   def update
-    @membership = Membership.find(params[:membership_id])
-    @membership = @project.memberships.new(params.require(:membership).permit(:project_id, :user_id, :role))
-    redirect_to project_memberships_path(@project, @membership)
+    @membership = Membership.find(params[:id])
+    @membership.update(params.require(:membership).permit(:project_id, :user_id, :role))
+    redirect_to project_memberships_path(@project, @membership), notice: 'Membership was successfully updated'
+  end
+  def destroy
+    @membership = Membership.find(params[:id])
+    @membership.destroy
+    redirect_to project_path(@project), notice: 'Membership was successfully destroyed'
   end
   def membership_params
     params.require(:membership).permit(:project_id, :user_id, :role)

@@ -26,6 +26,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    @task =@project.tasks.find(params[:id])
   end
 
   # POST /tasks

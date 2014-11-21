@@ -7,6 +7,8 @@
 </div>
   <h2>Tasks for <%= @project.name %></h2>
 </div>
+
+
 <ol class="breadcrumb">
   <li><%= link_to "Projects", projects_path %></li>
   <li><%= link_to @project.name, project_path(@project) %></li>
@@ -14,6 +16,9 @@
 </ol>
 
 
+<% if notice.is_a? String %>
+<div class="text-center alert alert-info"><%= notice %> </div>
+<% end %>
 
 <table class ="table">
 

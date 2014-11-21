@@ -6,12 +6,16 @@
 </div>
 <table class ="table">
 <tbody>
-<th>Name</th><th>Tasks</th>
+<th>Name</th><th>Members</th><th>Tasks<th>
 <% @projects.each do |project| %>
 <tr>
-<td><%=link_to project.name, project_path(project) %></td>
+  <td><%=link_to project.name, project_path(project) %></td>
 
-<td><%= link_to (project.tasks.count), project_tasks_path(project) %></td>
+  <td><%= link_to (project.memberships.count), project_memberships_path(project) %></td>
+
+  <td><%= link_to (project.tasks.count), project_tasks_path(project) %></td>
+
+
 </tr>
 <% end %>
 
