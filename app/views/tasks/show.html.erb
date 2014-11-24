@@ -1,5 +1,19 @@
+
+<h1><%= @task.description %></h1>
+<div class="pull-right">
+  <%= link_to 'Edit', edit_project_task_path(@project, @task), class: "btn btn-primary" %>
+</div>
 <br>
 <br>
+<ol class="breadcrumb">
+  <li><%= link_to "Projects", projects_path %></li>
+  <li><%= link_to @project.name, project_path(@project) %></li>
+  <li><%= link_to "Tasks", project_tasks_path %></li>
+  <li class="active">Show</li>
+</ol>
+
+
+
 <div class="container"
   <p id="notice"><%= notice %></p>
 
@@ -18,6 +32,4 @@
   </p>
 
 
-  <%= link_to 'Edit', edit_project_task_path(@project, @task) %> |
-  <%= link_to 'Back', project_tasks_path %>
-</div>
+  </div>

@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h2>Membership for <%= @project.name %></h2>
+  <h2><%= @project.name %>: Manage Members</h2>
 </div>
 
 <ol class="breadcrumb">
@@ -9,21 +9,15 @@
 </ol>
 <%= render "shared/errors", instance: @membership  %>
 
+<% if notice.is_a? String %>
+<div class="text-center alert alert-info"><%= notice %> </div>
+<% end %>
 
-<div class="well form-inline col-sm-6">
+<div class="well form-inline">
     <%= form_for [@project, @membership] do |f| %>
       <div class="form-group">
-        <%= f.label :user_id %>
-        <em>
-        <%= f.collection_select(:user_id, User.all, :id, :first_name,{include_blank:"Please select a user"},{class: "form-control"}) %>
-        </em>
-      </div>
-
-        <div class="form-group">
-          <%= f.select :role, ["member", "owner"],{}, {class: "form-control"} %>
-        </div>
-
-      <div class="form-group">
+        <%= f.collection_select(:user_id, User.all, :id, :full_name,{include_blank:"Please select a user..."},{class: "form-control"}) %>
+        <%= f.select :role, ["member", "owner",],{include_blank: true}, {class: "form-control"} %>
         <%= f.submit class: "btn btn-primary" %>
       </div>
     <% end %>
@@ -32,19 +26,18 @@
 
 
 <table class="table">
-    <br>
-    <% @project.users.each do |u| %>
-      <% u.memberships.where(project_id: @project.id).each do |m| %>
-        <%= form_for [@project, m] do |f| %>
-        <tr><td class="col-sm-2"><%= link_to "#{u.first_name} #{u.last_name}",project_membership_path(@project, m) %></td>
+    <% @project.users.each do |user| %>
+      <% user.memberships.where(project_id: @project.id).each do |membership| %>
+        <%= form_for [@project, membership] do |f| %>
+        <tr><td class="col-sm-2"><%= link_to "#{user.full_name}",user_path(user) %></td>
           <td class="col-sm-2"><%= f.select :role, ["member", "owner"],{},{class: "form-control"} %></td>
           <td class="col-sm-2"><%= f.submit class: "btn btn-primary" %></td>
-          <td><%= link_to project_membership_path(@project, m), confirm: 'Are you sure ?', method: :delete do %>
+          <td><%= link_to project_membership_path(@project, membership), confirm: 'Are you sure ?', method: :delete do %>
           <i class="glyphicon glyphicon-remove"></i>
-          <% end %>
         </td></tr>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
-
-  </table>
+</table>
+</div>

@@ -30,18 +30,14 @@
   <th>description</th> <th>due date</th> <th>complete</th>
     <% @tasks.each do |task| %>
 <tr>
- <td><%= task.description %></td>
+ <td><%= link_to task.description, project_task_path(@project,task) %></td>
  <td><%= task.due_date.try(:strftime, "%m/%d/%Y")%></td>
  <td><%= task.complete %> </td>
-
-    <td width="30px"><%= link_to 'Show',project_task_path(@project, task), class: "pull-right btn btn-success" %></td>
-
-
       <td width="30px"><%= link_to 'Edit',edit_project_task_path(@project,task), class: "pull-right btn btn-info" %></td>
-
-
-       <td width="30px"><%= link_to 'Destroy',project_task_path(@project,task), method: :delete, data: { confirm: 'Are you sure?' }, class: "pull-right btn btn-danger" %></td>
+       <td><%= link_to project_task_path(@project, task), confirm: 'Are you sure ?', method: :delete do %>
+         <i class="glyphicon glyphicon-remove"></i></td>
 </tr>
+  <% end %>
     <% end %>
   </tbody>
 </table>

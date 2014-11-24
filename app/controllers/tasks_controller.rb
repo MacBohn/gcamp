@@ -45,26 +45,21 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
-    respond_to do |format|
+    @task = Task.find(params[:id])
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
+        redirect_to project_task_path, notice: 'Task was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
-    @task.destroy
-    respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
-      format.json { head :no_content }
+    @task = Task.find(params[:id])
+      @task.destroy
+      redirect_to project_tasks_path, notice: 'Task was successfully destroyed.'
     end
-  end
     # Use callbacks to share common setup or constraints between actions.
 
 
