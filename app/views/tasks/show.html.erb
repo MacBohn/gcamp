@@ -15,12 +15,13 @@
 
 
 
-<div class="container"
-  <p id="notice"><%= notice %></p>
-  <p>
-    <strong>Complete:</strong>
-    <%= @task.complete %>
-  </p>
+<div class="container">
+  <% if notice.is_a? String %>
+  <p class="text-center alert alert-info"><%= notice %></p>
+  <% end %>
+
+  <p><strong>Complete:</strong>
+    <%= @task.complete %></p>
 
   <p>
     <strong>Due Date:</strong>
@@ -33,17 +34,27 @@
 <% @task.comments.all.each do |comment|  %>
 <div class="row">
   <div class="col-md-3">
-  <%= link_to comment.user.full_name, user_path %>
+    <%= link_to comment.user.full_name, user_path %>
+      <div class="text-muted">
+        <%= time_ago_in_words(comment.created_at) %> ago
+      </div>
+  </div>
+    <div class="col-xs-9">
+      <%= comment.comment %>
+    </div>
 </div>
-  <%= comment.comment %>
-</div>
-  <p class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago </p>
+<br>
 <% end %>
 
 <%= form_for [@project, @task, @comment] do |f| %>
-  <div class= "col-md-9">
-    <%= f.text_area :comment, class: "form-control" %>
-    <br>
-    <%= f.submit class: "btn btn-primary" %>
+  <div class="form-group row">
+    <div class= "col-md-offset-3 col-md-9">
+      <%= f.text_area :comment, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class= "col-md-offset-3 col-md-9">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>

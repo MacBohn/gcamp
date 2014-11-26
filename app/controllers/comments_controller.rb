@@ -11,8 +11,10 @@ end
   def create
     @comment = @task.comments.new(params.require(:comment).permit(:comment, :task_id, :user_id))
     @comment.user_id = current_user.id
-    @comment.save
-    redirect_to project_task_path(@project,@task)
-
+    if @comment.save
+      redirect_to project_task_path(@project,@task), notice: "Comment saved"
+    else
+      redirect_to project_task_path(@project,@task)
+    end
   end
 end

@@ -30,7 +30,9 @@
   <th>description</th> <th>due date</th> <th>complete</th>
     <% @tasks.each do |task| %>
 <tr>
- <td><%= link_to task.description, project_task_path(@project,task) %></td>
+ <td><%= link_to task.description, project_task_path(@project,task) %>
+ <%= link_to (task.comments.count),
+ project_task_path(@project, task), class:"badge badge-info" %></td>
  <td><%= task.due_date.try(:strftime, "%m/%d/%Y")%></td>
  <td><%= task.complete %> </td>
       <td width="30px"><%= link_to 'Edit',edit_project_task_path(@project,task), class: "pull-right btn btn-info" %></td>

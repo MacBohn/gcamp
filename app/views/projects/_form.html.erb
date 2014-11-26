@@ -1,6 +1,5 @@
-
-<%= render "shared/errors", instance: @project  %>
 <%= form_for(@project) do |f| %>
+<%= render "shared/errors", instance: @project  %>
   <div class="form-group row">
       <div class="field">
         <%= f.label :name,  class: "col-sm-2 control-label" %>
@@ -16,5 +15,4 @@
           </div>
         </div>
    </div>
-
 <% end %>
