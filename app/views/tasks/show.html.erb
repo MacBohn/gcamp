@@ -1,10 +1,11 @@
 
-<h1><%= @task.description %></h1>
+<div class="page-header">
 <div class="pull-right">
+  <br>
   <%= link_to 'Edit', edit_project_task_path(@project, @task), class: "btn btn-primary" %>
 </div>
-<br>
-<br>
+<h1><%= @task.description %></h1>
+</div>
 <ol class="breadcrumb">
   <li><%= link_to "Projects", projects_path %></li>
   <li><%= link_to @project.name, project_path(@project) %></li>
@@ -30,6 +31,19 @@
     <strong>Due Date:</strong>
     <%= @task.due_date.try(:strftime, "%m/%d/%Y") %>
   </p>
+</div>
 
+<h2>Comments</h2>
 
+<% @task.comments.all.each do |comment|  %>
+  <%= link_to comment.user.full_name, user_path %>
+  <%= comment.comment %>
+<% end %>
+
+<%= form_for [@project, @task, @comment] do |f| %>
+  <div class="col-sm-9">
+    <%= f.text_area :comment, class: "form-control" %>
+  <br>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
+<% end %>
