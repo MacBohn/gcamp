@@ -2,7 +2,7 @@
 <div class="page-header">
 <div class="pull-right">
   <br>
-  <%= link_to 'Edit', edit_project_task_path(@project, @task), class: "btn btn-primary" %>
+  <%= link_to 'Edit', edit_project_task_path(@project, @task), class: "btn btn-info" %>
 </div>
 <h1><%= @task.description %></h1>
 </div>
@@ -17,11 +17,6 @@
 
 <div class="container"
   <p id="notice"><%= notice %></p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @task.description %>
-  </p>
   <p>
     <strong>Complete:</strong>
     <%= @task.complete %>
@@ -36,14 +31,19 @@
 <h2>Comments</h2>
 
 <% @task.comments.all.each do |comment|  %>
+<div class="row">
+  <div class="col-md-3">
   <%= link_to comment.user.full_name, user_path %>
+</div>
   <%= comment.comment %>
+</div>
+  <p class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago </p>
 <% end %>
 
 <%= form_for [@project, @task, @comment] do |f| %>
-  <div class="col-sm-9">
+  <div class= "col-md-9">
     <%= f.text_area :comment, class: "form-control" %>
-  <br>
+    <br>
     <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
