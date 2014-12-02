@@ -11,10 +11,6 @@
 </ol>
 
 
-<% if notice.is_a? String %>
-<div class="text-center alert alert-info"><%= notice %> </div>
-<% end %>
-
 <%= link_to pluralize(@project.tasks.count, "Task"), project_tasks_path(@project) %><br>
 
 <%= link_to pluralize(@project.memberships.count, "Membership"),project_memberships_path(@project) %>

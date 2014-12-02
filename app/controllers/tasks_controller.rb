@@ -2,6 +2,14 @@ class TasksController < ApplicationController
   before_action do
     @project = Project.find(params[:project_id])
   end
+  before_action :ensure_logged_in
+
+
+  def ensure_logged_in
+    if session[:user_id].nil?
+      redirect_to signin_path, notice: "You must be logged in to access that action"
+    end
+  end
 
   # GET /tasks
   # GET /tasks.json
