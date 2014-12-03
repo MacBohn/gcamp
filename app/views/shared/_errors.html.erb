@@ -1,13 +1,11 @@
 
 <% if instance.errors.any? %>
-  <div class="form-group row">
-    <div class="col-sm-offset-2 col-sm-6 alert bg-danger">
-      <h3><%= pluralize(instance.errors.count, "error") %> prohibited this task from being saved:</h3>
+    <div class="alert alert-danger">
+      <p><strong><%= pluralize(instance.errors.count, "error") %> prohibited this task from being saved:</strong></p>
       <ul>
     <% instance.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
       </ul>
     </div>
-  </div>
 <% end %>

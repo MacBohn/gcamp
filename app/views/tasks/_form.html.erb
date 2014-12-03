@@ -1,39 +1,37 @@
-<%= form_for [@project, @task] do |f| %>
-
-<%= render "shared/errors", instance: @task %>
-
- <div class="form-group">
-    <div class="field">
-      <%= f.label :description , class: "control-label"%><br>
-      <div class="col-sm-6">
-      <%= f.text_field :description , class: "form-control"%>
+<%= form_for [@project, @task], {html: {class: "form-horizontal"}} do |f| %>
+<div class = "form-group">
+  <div class = "col-sm-offset-2 col-sm-6">
+    <%= render "shared/errors", instance: @task %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :description , class: "control-label col-sm-2"%>
+  <div class="col-sm-6">
+    <%= f.text_field :description , class: "form-control"%>
+  </div>
+</div>
+<div class ="form-group">
+  <div class="field">
+    <%=f.label :due_date , class: "control-label col-sm-2"%>
+    <div class="col-sm-6">
+      <%= f.date_field :due_date, class: "form-control"%>
     </div>
   </div>
 </div>
-<br>
-      <div class ="form-group">
-        <div class="field">
-            <%=f.label :due_date , class: "control-label"%><br>
-          <div class="col-sm-6">
-            <%= f.date_field :due_date, class: "form-control" %>
-          </div>
-        </div>
-      </div>
 
-  <h3><i class="glyphicon glyphicon-calendar", class: "form-control" ></i></h3>
-  
-    <% if @task.id? %>
-      <div class= "complete">
-        <%= f.label :complete%>
-        <%= f.check_box :complete %>
-      </div>
-    <% end %>
 
-  <div class="form-group row">
-    <div class="col-sm-offset-2 col-sm-6">
-      <div class="actions">
-        <%= f.submit class: "btn btn-primary" %>
-      </div>
+<% if @task.id? %>
+<div class= "complete">
+  <%= f.label :complete%>
+  <%= f.check_box :complete %>
+</div>
+<% end %>
+
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-6">
+    <div class="actions">
+      <%= f.submit class: "btn btn-primary" %>
     </div>
   </div>
+</div>
 <% end %>
