@@ -1,7 +1,7 @@
 class Task < ActiveRecord::Base
   validates :description, presence: true
   validate :not_past_date, on: :create
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   def not_past_date
     if due_date && due_date < Date.today
