@@ -2,18 +2,12 @@ class CommentsController < ApplicationController
   before_action do
     @project = Project.find(params[:project_id])
     @task = Task.find(params[:task_id])
-end
-before_action :ensure_logged_in
-
-
-def ensure_logged_in
-  if session[:user_id].nil?
-    redirect_to signin_path, notice: "You must be logged in to access that action"
   end
-end
+  before_action :ensure_logged_in
+  
 
   def index
-  @comment = @task.comments.new
+    @comment = @task.comments.new
   end
 
   def create

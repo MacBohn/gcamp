@@ -3,14 +3,7 @@ class MembershipsController < ApplicationController
     @project = Project.find(params[:project_id])
   end
   before_action :ensure_logged_in
-
-
-  def ensure_logged_in
-    if session[:user_id].nil?
-      redirect_to signin_path, notice: "You must be logged in to access that action"
-  end
-end
-
+  
   def index
     @memberships = Membership.all
     @membership = Membership.new
@@ -19,7 +12,7 @@ end
   def create
     @membership = @project.memberships.new(params.require(:membership).permit(:project_id, :user_id, :role))
     if @membership.save
-    redirect_to project_memberships_path(@project, @membership), notice: "#{@membership.user.full_name} was added successfully"
+      redirect_to project_memberships_path(@project, @membership), notice: "#{@membership.user.full_name} was added successfully"
     else
       render :index
     end

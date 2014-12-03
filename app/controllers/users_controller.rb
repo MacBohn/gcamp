@@ -1,17 +1,10 @@
 class UsersController < ApplicationController
 
-before_action :ensure_logged_in
-
-
-def ensure_logged_in
-  if session[:user_id].nil?
-    redirect_to signin_path, notice: "You must be logged in to access that action"
-  end
-end
-
+  before_action :ensure_logged_in
+  
   def index
     @users = User.all
-    end
+  end
 
   def new
     @user = User.new
@@ -34,15 +27,15 @@ end
   def create
     @user = User.new(user_params)
     if @user.save
-    redirect_to users_path, notice: 'User was successfully created.'
-  else
-    render :new
+      redirect_to users_path, notice: 'User was successfully created.'
+    else
+      render :new
+    end
   end
-end
   def show
     @user = User.find(params[:id])
   end
-private
+  private
   def user_params
     params.require(:user).permit(:first_name,:password,:last_name, :email,:password_confirmation)
   end

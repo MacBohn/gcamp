@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   has_secure_password
 has_many :memberships, dependent: :destroy
-has_many :users, through: :memberships
+has_many :projects, through: :memberships
 has_many :comments, dependent: :nullify
 
   def full_name

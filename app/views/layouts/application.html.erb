@@ -27,9 +27,11 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href>Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
+              <% if current_user %>
+                <% current_user.memberships.each do |membership| %>
+                  <li><%= link_to membership.project.name, project_path(membership.project)%></li>
+                <% end %>
+              <% end %>
               <li class="divider"></li>
               <li><%= link_to "New Project", new_project_path %></li>
             </ul>
@@ -60,14 +62,15 @@
     </div>
     <br>
   </div>
-  <footer class="panel container">
+  <footer class="container">
+    <hr>
     <div class="text-center">
-      <p><%= link_to 'Home', root_path %> |
+      <%= link_to 'Home', root_path %> |
         <%= link_to 'About', about_path %> |
         <%= link_to 'Terms', terms_path %> |
-        <%= link_to 'FAQ', faq_path %></p>
-        &copy; Mega Mac Company
+        <%= link_to 'FAQ', faq_path %>
       </div>
+      <br>
     </footer>
   </body>
   </html>

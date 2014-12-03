@@ -3,14 +3,6 @@ class TasksController < ApplicationController
     @project = Project.find(params[:project_id])
   end
   before_action :ensure_logged_in
-
-
-  def ensure_logged_in
-    if session[:user_id].nil?
-      redirect_to signin_path, notice: "You must be logged in to access that action"
-    end
-  end
-
   # GET /tasks
   # GET /tasks.json
   def index
@@ -55,25 +47,25 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
-      if @task.update(task_params)
-        redirect_to project_tasks_path, notice: 'Task was successfully updated.'
-      else
-        render :edit
-      end
+    if @task.update(task_params)
+      redirect_to project_tasks_path, notice: 'Task was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
     @task = Task.find(params[:id])
-      @task.destroy
-      redirect_to project_tasks_path, notice: 'Task was successfully destroyed.'
-    end
-    # Use callbacks to share common setup or constraints between actions.
-
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def task_params
-      params.require(:task).permit(:description, :complete, :due_date )
-    end
+    @task.destroy
+    redirect_to project_tasks_path, notice: 'Task was successfully destroyed.'
   end
+  # Use callbacks to share common setup or constraints between actions.
+
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def task_params
+    params.require(:task).permit(:description, :complete, :due_date )
+  end
+end

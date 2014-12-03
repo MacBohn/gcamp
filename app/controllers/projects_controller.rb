@@ -1,13 +1,6 @@
 class ProjectsController <ApplicationController
   before_action :ensure_logged_in
 
-
-  def ensure_logged_in
-    if session[:user_id].nil?
-      redirect_to signin_path, notice: "You must be logged in to access that action"
-    end
-  end
-
   def index
     @projects = Project.all
   end
@@ -18,12 +11,12 @@ class ProjectsController <ApplicationController
   def create
     project_params = params.require(:project).permit(:name)
     @project = Project.new(project_params)
-  if  @project.save
-    redirect_to projects_path, notice: "Project successfully created"
-  else
-    render :new
+    if  @project.save
+      redirect_to project_tasks_path(@project), notice: "Project successfully created"
+    else
+      render :new
+    end
   end
- end
   def show
     @project = Project.find(params[:id])
     @memberships = Membership.all
@@ -32,20 +25,20 @@ class ProjectsController <ApplicationController
     @project = Project.find(params[:id])
   end
   def update
-  project_params = params.require(:project).permit(:name)
+    project_params = params.require(:project).permit(:name)
     @project = Project.find(params[:id])
     if @project.update(project_params)
-    redirect_to projects_path(@projects), notice: "Project successfully updated"
-  else
-    render:new
-  end
+      redirect_to projects_path(@projects), notice: "Project successfully updated"
+    else
+      render:new
+    end
   end
 
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-   redirect_to projects_path, notice: "Project was destroyed"
+    redirect_to projects_path, notice: "Project was destroyed"
   end
 
-    private
+  private
 end
