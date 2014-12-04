@@ -1,3 +1,22 @@
-bad_memberships = Membership.where(user_id: nil)
+namespace :cleanup do
 
-bad_memberships.destroy_all
+  desc "cleanup bad data"
+  task :run => :environment do
+    Membership.where.not(user_id: User.all).destroy_all
+
+    Membership.where.not(project_id: Project.all).destroy_all
+
+
+    Task.where.not(project_id: Project.all).destroy_all
+
+
+
+    Comment.where.not(user_id: User.all).update_all(user_id: nil)
+
+
+    Membership.where(project_id: nil).destroy_all
+
+    Membership.where(user_id: nil).destroy_all
+  end
+
+end
