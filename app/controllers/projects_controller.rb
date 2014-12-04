@@ -12,6 +12,7 @@ class ProjectsController <ApplicationController
     project_params = params.require(:project).permit(:name)
     @project = Project.new(project_params)
     if  @project.save
+      Membership.create( project: @project, user: current_user ,role: 'owner')
       redirect_to project_tasks_path(@project), notice: "Project successfully created"
     else
       render :new
