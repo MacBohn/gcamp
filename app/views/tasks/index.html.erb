@@ -15,24 +15,35 @@
     <li class="active">Tasks</li>
   </ol>
 
-  <table class ="table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>description</th>
+        <th>due date</th>
+        <th>complete</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
     <tbody>
-      <th>description</th> <th>due date</th> <th>complete</th>
       <% @tasks.each do |task| %>
       <tr>
-        <td><%= link_to task.description, project_task_path(@project,task) %>
-          <div class="badge badge">
-            <%= task.comments.count%></td>
+        <td>
+          <%= link_to task.description, project_task_path(@project,task) %>
+          <div class="badge">
+            <%= task.comments.count %>
           </div>
-          <td><%= task.due_date.try(:strftime, "%m/%d/%Y")%></td>
-          <td><%= task.complete %> </td>
-          <td width="30px"><%= link_to 'Edit',edit_project_task_path(@project,task), class: "pull-right btn btn-info" %></td>
-          <td><%= link_to project_task_path(@project, task), confirm: 'Are you sure ?', method: :delete do %>
-            <i class="glyphicon glyphicon-remove"></i></td>
-          </tr>
+        </td>
+        <td><%= task.due_date.try(:strftime, "%m/%d/%Y")%></td>
+        <td><%= task.complete %> </td>
+        <td width="30px"><%= link_to 'Edit',edit_project_task_path(@project,task), class: "pull-right btn btn-info" %></td>
+        <td>
+          <%= link_to project_task_path(@project, task), confirm: 'Are you sure ?', method: :delete do %>
+            <i class="glyphicon glyphicon-remove"></i>
           <% end %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
