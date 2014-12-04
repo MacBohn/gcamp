@@ -1,6 +1,14 @@
 <div class= "page-header">
   <h1> About </h1>
 </div>
-  <%= image_tag"meeting.png col-md-4" %>
+<div class="main-content">
+  <div class= "col-md-4 image">
+    <%= image_tag"meeting.png" %>
+  </div>
 
-<h3> We are dedicated to the makers, the creators, the risk-takers </h3>
+  <h3> We are dedicated to the makers, the creators, the risk-takers </h3>
+</div>
+ <div>
+   <%= @projects %> Projects, <%= @tasks %>  Tasks,
+   <%= @users %>, Users <%= @memberships %> Memberships, <%= @comments %> Comments
+ </div>

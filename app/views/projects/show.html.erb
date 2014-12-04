@@ -1,16 +1,24 @@
   <div class="page-header">
     <div class= "pull-right">
-        <%= link_to "Edit", edit_project_path(@project), class: "btn btn-primary" %>
-        <%= link_to "Delete", project_path(@project), method: :delete, class: "btn btn-danger" %>
+      <%= link_to "Edit", edit_project_path(@project), class: "btn btn-primary" %>
+
     </div>
-      <h2><%= @project.name %></h2>
+    <h2><%= @project.name %></h2>
   </div>
-<ol class="breadcrumb">
-  <li><%= link_to "Projects", projects_path %></li>
-  <li class="active"><%= @project.name %></li>
-</ol>
+  <ol class="breadcrumb">
+    <li><%= link_to "Projects", projects_path %></li>
+    <li class="active"><%= @project.name %></li>
+  </ol>
 
 
-<%= link_to pluralize(@project.tasks.count, "Task"), project_tasks_path(@project) %><br>
+  <%= link_to pluralize(@tasks_count, "Task"), project_tasks_path(@project) %><br>
 
-<%= link_to pluralize(@project.memberships.count, "Membership"),project_memberships_path(@project) %>
+  <%= link_to pluralize(@members_count, "Membership"),project_memberships_path(@project) %>
+
+  <div class= "well">
+    <strong> Delete Project </strong>
+
+    <p>Deleteing this project will also delete <%= @members_count %> Memberships,
+       <%= @tasks_count %> Tasks and associated comments </p>
+    <%= link_to "Delete", project_path(@project), method: :delete, class: "btn btn-danger" %>
+  </div>

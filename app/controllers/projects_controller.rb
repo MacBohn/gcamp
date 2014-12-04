@@ -20,6 +20,8 @@ class ProjectsController <ApplicationController
   def show
     @project = Project.find(params[:id])
     @memberships = Membership.all
+    @members_count = @project.memberships.count
+    @tasks_count = @project.tasks.count
   end
   def edit
     @project = Project.find(params[:id])
