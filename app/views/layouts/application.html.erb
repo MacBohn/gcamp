@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<div class="container">
 
 
   <title> gCamp </title>
@@ -14,6 +13,7 @@
   <meta name="author" content="">
 
   <body>
+    <div class="container">
 
 
 
@@ -52,16 +52,13 @@
 
 
     <br>
-    <div class= "container">
       <% if notice != nil %>
       <div class="text-center alert alert-info">
         <%= notice %>
       </div>
       <% end %>
       <%= yield %>
-    </div>
     <br>
-  </div>
   <footer class="container">
     <hr>
     <div class="text-center">
@@ -72,5 +69,6 @@
       </div>
       <br>
     </footer>
+  </div>
   </body>
-  </html>
+</html>

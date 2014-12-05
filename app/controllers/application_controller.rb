@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
   def current_user
     User.find_by_id(session[:user_id])
   end
+  def determine_layout
+    current_user ? "application" : "public"
+  end
 
   helper_method :current_user
   protect_from_forgery with: :exception

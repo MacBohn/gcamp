@@ -20,5 +20,5 @@
 
     <p>Deleteing this project will also delete <%= @members_count %> Memberships,
        <%= @tasks_count %> Tasks and associated comments </p>
-    <%= link_to "Delete", project_path(@project), method: :delete, class: "btn btn-danger" %>
+    <%= link_to "Delete", project_path(@project), method: :delete, data: {confirm: "Are you sure ?"}, class: "btn btn-danger" %>
   </div>
