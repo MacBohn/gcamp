@@ -1,7 +1,7 @@
   <div class= "page-header">
     <div class= "pull-right">
-      <%= link_to 'All', project_tasks_path(complete: true) %> |
-      <%= link_to 'Incomplete' %>
+      <%= link_to_unless params[:show_by] == 'all', 'All', project_tasks_path(@project, show_by: "all") %> |
+      <%= link_to_unless !params[:show_by], 'Incomplete', project_tasks_path(@project) %>
       <%= link_to 'Create Task', new_project_task_path, class: "btn btn-primary"%>
     </div>
     <h2>Tasks for <%= @project.name %></h2>
