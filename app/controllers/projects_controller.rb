@@ -26,6 +26,7 @@ class ProjectsController <ApplicationController
   end
   def edit
     @project = Project.find(params[:id])
+    
   end
   def update
     project_params = params.require(:project).permit(:name)
