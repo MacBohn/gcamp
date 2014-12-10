@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :ensure_logged_in
-  
+
   def index
     @users = User.all
   end
@@ -37,6 +37,6 @@ class UsersController < ApplicationController
   end
   private
   def user_params
-    params.require(:user).permit(:first_name,:password,:last_name, :email,:password_confirmation)
+    params.require(:user).permit(:first_name,:password,:last_name, :email,:password_confirmation, :pivotal_tracker_token)
   end
 end

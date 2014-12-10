@@ -9,5 +9,10 @@
 
     <dt><strong>Email:</strong></dt>
     <dd><%= mail_to @user.email %></dd>
+
+    <dt><strong>Pivotal Tracker Token:</strong></dt>
+    <dd><%= @user.pivotal_tracker_token[0..3] + "*" * (@user.pivotal_tracker_token.length - 3)%></dd>
+
+
   </dl>
 </div>

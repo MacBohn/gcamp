@@ -3,6 +3,8 @@ class ProjectsController <ApplicationController
 
   def index
     @projects = Project.all
+    tracker_projects = TrackerAPI.new
+    @tracker_projects = tracker_projects.projects(current_user.pivotal_tracker_token)
   end
 
   def new
@@ -26,7 +28,7 @@ class ProjectsController <ApplicationController
   end
   def edit
     @project = Project.find(params[:id])
-    
+
   end
   def update
     project_params = params.require(:project).permit(:name)
