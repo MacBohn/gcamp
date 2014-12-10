@@ -7,10 +7,13 @@ class ApplicationController < ActionController::Base
     if session[:user_id].nil?
       redirect_to signin_path, notice: "You must be logged in to access that action"
     end
+
   end
+  
   def current_user
     User.find_by_id(session[:user_id])
   end
+
   def determine_layout
     current_user ? "application" : "public"
   end

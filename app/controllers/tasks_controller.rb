@@ -6,10 +6,11 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    if params[:complete]
-      @tasks = @project.tasks.order(params[:sort_by])
-    else
-      @tasks = @project.tasks.order(params[:sort_by]).where(complete: false)
+      @tasks = @project.tasks.where(complete: false)
+      @ref ="incomplete"
+    if params[:type] =="all"
+      @tasks = @project.tasks.all
+      @ref = "all"
     end
   end
 
