@@ -1,0 +1,24 @@
+<div class = "page-header">
+  <div class= "pull-right">
+    <h4>(Show first 500)</h4>
+  </div>
+  <h1>Stoies for gCamp</h1>
+</div>
+<table class ="table table-striped">
+  <thead>
+  <tbody>
+    <th>Stories</th><th>Estimate</th><th>Labels</th><th>Current State</th>
+    <% @tracker_stories.each do |story| %>
+    <tr>
+      <td> <%= story %></td>
+      <td>
+        <td>
+          <td>
+
+          </td>
+        </td>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

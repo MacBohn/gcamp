@@ -4,21 +4,18 @@
   </div>
   <h1>My Projects</h1>
 </div>
+
 <table class ="table">
   <tbody>
     <th>Name</th><th>Members</th><th>Tasks<th>
       <% current_user.projects.each do |project| %>
       <tr>
         <td><%=link_to project.name, project_path(project) %></td>
-
         <td><%= link_to (project.memberships.count), project_memberships_path(project) %></td>
-
         <td><%= link_to (project.tasks.count), project_tasks_path(project) %></td>
       </tr>
       <% end %>
-
     </tbody>
-
   </table>
   <br>
   <br>
@@ -28,9 +25,11 @@
     <tbody>
       <th>Name</th>
       <tr>
+        <% @tracker_projects.each do |project| %>
         <td>
-          
+          <%= link_to project.name, tracker_project_path(project.id)%>
         </td>
       </tr>
+      <% end %>
     </tbody>
   </table>
