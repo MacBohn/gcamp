@@ -7,7 +7,14 @@ class User < ActiveRecord::Base
   has_many :memberships, dependent: :destroy
   has_many :projects, through: :memberships
   has_many :comments, dependent: :nullify
-  
+
+
+  def is_owner?(project)
+    memberships
+    .where(role: 'owner')
+    .pluck('project_id')
+    .include?(project)
+  end
 
   def full_name
     self.first_name + ' ' + self.last_name

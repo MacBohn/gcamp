@@ -27,6 +27,9 @@ class ProjectsController <ApplicationController
     @tasks_count = @project.tasks.count
   end
   def edit
+    if current_user.is_owner?(@project)
+      render file: "#{Rails.root}/public/404.html", layout: false, status: 403
+    end
     @project = Project.find(params[:id])
 
   end
