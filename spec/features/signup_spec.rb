@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature "Sign Up" do
-
   scenario "User can Sign Up" do
     visit sign_up_path
     click_on "Sign Up"
@@ -12,6 +11,5 @@ feature "Sign Up" do
     fill_in "Password confirmation", with: "pass"
     click_on "Sign up"
     expect(page).to have_content("MAC DRE")
-
-end
+  end
 end

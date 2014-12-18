@@ -11,7 +11,14 @@
     <dd><%= mail_to @user.email %></dd>
 
     <dt><strong>Pivotal Tracker Token:</strong></dt>
-    <dd><%= @user.pivotal_tracker_token[0..3] + "*" * (@user.pivotal_tracker_token.length - 3)%></dd>
+
+    <dd>
+      <% if @user.pivotal_tracker_token %>
+      <%= @user.pivotal_tracker_token[0..3] + "*" * (@user.pivotal_tracker_token.length - 3)%>
+      <% end %>
+    </dd>
+    <dt><strong>Admin:</strong></dt>
+    <dd><%= @user.admin %></dd>
 
 
   </dl>

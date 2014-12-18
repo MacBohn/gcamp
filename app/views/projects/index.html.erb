@@ -1,13 +1,12 @@
-<div class= "page-header">
-  <div class= "pull-right">
-    <%= link_to 'Create Project', new_project_path, class: "btn btn-primary" %>
-  </div>
-  <h1>My Projects</h1>
-</div>
+<%= page_header "Projects" do %>
+<%= link_to 'Create Project', new_project_path, class: "btn btn-primary" %>
+<% end %>
 
 <table class ="table">
-  <tbody>
+  <thead>
     <th>Name</th><th>Members</th><th>Tasks<th>
+    </thead>
+    <tbody>
       <% current_user.projects.each do |project| %>
       <tr>
         <td><%=link_to project.name, project_path(project) %></td>
@@ -22,8 +21,10 @@
 
   <h2>Pivotal Tracker Projects</h2>
   <table class ="table">
-    <tbody>
+    <thead>
       <th>Name</th>
+    </thead>
+    <tbody>
       <tr>
         <% @tracker_projects.each do |project| %>
         <td>

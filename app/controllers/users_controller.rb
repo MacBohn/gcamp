@@ -16,16 +16,27 @@ class UsersController < ApplicationController
   end
   def edit
     @user = User.find(params[:id])
+    if current_user.id != @user.id
+      render file: "#{Rails.root}/public/404.html", layout: false, status: 404 and return
+    end
   end
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
+    if current_user.admin
+     @user.update(admin_user_params)
+    else
+      @user.update(user_params)
+    end
     @user.save
     redirect_to users_path, notice: 'User was successfully updated'
   end
 
   def create
-    @user = User.new(user_params)
+    if current_user.admin
+      @user = User.new(admin_user_params)
+    else
+      @user = User.new(user_params)
+    end
     if @user.save
       redirect_to users_path, notice: 'User was successfully created.'
     else
@@ -38,5 +49,8 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:first_name,:password,:last_name, :email,:password_confirmation, :pivotal_tracker_token)
+  end
+  def admin_user_params
+    params.require(:user).permit(:first_name,:password,:last_name, :email,:password_confirmation, :pivotal_tracker_token, :admin)
   end
 end

@@ -20,7 +20,7 @@ class MembershipsController < ApplicationController
   def update
 
     if !current_user.project_ids.include?(@project.id)
-      render file: "#{Rails.root}/public/404.html", layout: false, status: 403
+      render file: "#{Rails.root}/public/404.html", layout: false, status: 404
     end
     @membership = Membership.find(params[:id])
     @membership.update(membership_params)
