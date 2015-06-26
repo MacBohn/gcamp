@@ -26,20 +26,46 @@ input#user_admin{
   margin-top: 12px
 }
 
-
-
-.image{
-  img{
-    max-width: 100%;
-    max-height: 100%;
-
+.footer{
+  background: blue;
+}
+.footer1{
+  background: white;
+  height: 30px;
+}
+.footer1{
+  a{
+  color: black;
+  font-size: 20px;
+  background: blue;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 5px;
   }
+  padding-top: 10px;
+  text-align: center;
+}
+
+.footer2{
+  background: white;
+  height: 30px;
+  text-align: center;
+  padding-top: 20px;
+}
+.footer3{
+  background: white;
+  text-align: center;
+  padding-top: 20px;
 }
 
 body {
-  padding-top: 70px
+  padding-top: 70px;
+  height: 100%;
 }
 
+.panel{
+  text-align: center;
+}
 .navbar     {
   background-color: black;
 }
@@ -56,3 +82,17 @@ h2 {
 .author_grey{
    color: #999;
  }
+
+.sign-up{
+  text-align: center;
+  margin: 0px 300px 0px 300px;
+  h2{
+  }
+}
+
+.sign-in{
+  text-align: center;
+  margin: 0px 350px 0px 350px;
+  h2{
+  }
+}

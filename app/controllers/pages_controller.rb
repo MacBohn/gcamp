@@ -6,7 +6,7 @@ class PagesController < PublicController
     quote1.author = "Arnold Schwarzenegger"
 
     quote2 = Quote.new
-    quote2.text = "You're time is limited, so don't waster it living someone else's life"
+    quote2.text = "You're time is limited, so don't waste it living someone else's life"
     quote2.author = "Steve Jobs"
 
     quote3 = Quote.new
