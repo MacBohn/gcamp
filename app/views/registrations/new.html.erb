@@ -1,6 +1,6 @@
 <div class="sign-up">
   <div class="well well-lg">
-    <h2>Sign up for gCamp</h2>
+    <h1>Sign up</h1>
       <%= form_for @user, url: signup_path do |f| %>
        <% if @user.errors.present? %>
         <% @user.errors.full_messages.each do |message| %>
